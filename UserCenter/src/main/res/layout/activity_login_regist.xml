@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <me.ibrahimsn.particle.ParticleView
+        android:id="@+id/part_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:particleColor="@android:color/holo_green_light"
+        app:particleCount="30"
+        app:particleLineColor="@android:color/holo_green_light"
+        app:particlesBackgroundColor="@color/main_color">
+
+    </me.ibrahimsn.particle.ParticleView>
+
+
+<!--    <include android:visibility="gone" layout="@layout/activity_register" android:id="@+id/register_vieww"/>-->
+    <LinearLayout
+        android:id="@+id/login_input_edit"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:background="@drawable/login_bg_shpape"
+        android:layout_gravity="center"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp" >
+
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:text="UserName"
+            android:textColor="@android:color/holo_green_light"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <EditText
+            android:id="@+id/user_name"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/login_edit_shape"
+            android:layout_width="match_parent"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:paddingStart="10dp"
+            android:layout_height="40dp"/>
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:textSize="16sp"
+            android:text="PassWord"
+            android:textColor="@android:color/holo_green_light"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <EditText
+            android:id="@+id/pass_word"
+            android:textSize="14sp"
+            android:paddingStart="10dp"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/white"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/login_edit_shape"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"/>
+        <LinearLayout
+            android:layout_marginTop="35dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/register"
+                android:layout_weight="1"
+                android:layout_marginLeft="15dp"
+                android:textSize="16sp"
+                android:textColor="@android:color/holo_green_light"
+                android:text="REGISTER"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/login"
+                android:layout_weight="1"
+                android:textSize="16sp"
+                android:gravity="right"
+                android:layout_marginRight="15dp"
+                android:textColor="@android:color/holo_green_light"
+                android:text="SIGN IN"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>
