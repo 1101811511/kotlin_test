@@ -1,0 +1,5 @@
+include ':UserCenter'
+include ':Provider'
+include ':BaseLibrary'
+include ':App'
+rootProject.name = "Kotlin_achuan"
