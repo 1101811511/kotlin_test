@@ -19,9 +19,10 @@ open class BaseMvpActivity<T:BasePresenter<*>> :BaseActivity(),BaseView {
         TODO("Not yet implemented")
     }
 
-    override fun onError() {
+    override fun onError(msg: String) {
         TODO("Not yet implemented")
     }
+
 
     //延迟加载
     lateinit var mPresenter:T

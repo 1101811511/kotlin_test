@@ -1,5 +1,7 @@
 package com.jiewen.coco.usercenter.service.impl
 
+import com.jiewen.coco.baseliabrary.data.protocol.BaseResponse
+import com.jiewen.coco.baseliabrary.data.protocol.LoginBean
 import rx.Observable
 
 
@@ -11,5 +13,5 @@ import rx.Observable
  *    version: 1.0
  */
 interface UserService  {
-    fun doLogin(name:String,pwd:String): Observable<Boolean>
+    fun doLogin(name:String,pwd:String): Observable<BaseResponse<LoginBean>>
 }

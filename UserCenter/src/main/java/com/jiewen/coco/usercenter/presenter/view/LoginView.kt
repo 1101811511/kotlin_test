@@ -1,5 +1,6 @@
 package com.jiewen.coco.usercenter.presenter.view
 
+import com.jiewen.coco.baseliabrary.data.protocol.LoginBean
 import com.jiewen.coco.baseliabrary.presenter.view.BaseView
 
 /**
@@ -10,5 +11,5 @@ import com.jiewen.coco.baseliabrary.presenter.view.BaseView
  *    version: 1.0
  */
  interface LoginView :BaseView {
-    fun  LoginResponse(flag:Boolean);
+    fun  LoginResponse(response:LoginBean);
 }

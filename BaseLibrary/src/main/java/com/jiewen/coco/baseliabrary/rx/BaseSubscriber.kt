@@ -1,5 +1,6 @@
 package com.jiewen.coco.baseliabrary.rx
 
+import android.util.Log
 import rx.Subscriber
 
 
@@ -15,6 +16,9 @@ open class BaseSubscriber<T> : Subscriber<T>(){
     }
     //统一处理 onError和onComplete
     override fun onError(e: Throwable?) {
+        if (e != null) {
+            Log.i("tag", e.message!!)
+        }
 
     }
 

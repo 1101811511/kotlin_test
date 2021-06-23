@@ -1,5 +1,9 @@
 package com.jiewen.coco.usercenter.service
 
+import com.jiewen.coco.baseliabrary.data.Api.LoginService
+import com.jiewen.coco.baseliabrary.data.net.RetrofitFactory
+import com.jiewen.coco.baseliabrary.data.protocol.BaseResponse
+import com.jiewen.coco.baseliabrary.data.protocol.LoginBean
 import com.jiewen.coco.usercenter.service.impl.UserService
 import rx.Observable
 
@@ -11,8 +15,8 @@ import rx.Observable
  *    version: 1.0
  */
 class Userimpl :UserService {
-    override fun doLogin(name: String, pwd: String): Observable<Boolean> {
-        return Observable.just(true)
+    override fun doLogin(name: String, pwd: String): Observable<BaseResponse<LoginBean>> {
+        return RetrofitFactory.instance.creatApiService(LoginService::class.java).LoginRequest(name,pwd)
     }
 
 

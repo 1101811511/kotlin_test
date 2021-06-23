@@ -1,17 +1,14 @@
 package com.jiewen.coco.baseliabrary.data.net
 
-import android.os.Build
-import androidx.annotation.RequiresApi
-import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
+import com.jiewen.coco.baseliabrary.common.Constant
 import com.jiewen.coco.baseliabrary.widget.PsqLogUtil
 import okhttp3.*
-import okhttp3.internal.tls.OkHostnameVerifier
 import okio.Buffer
 import retrofit2.Retrofit
+import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.EOFException
 import java.nio.charset.Charset
-import java.time.Duration
 
 /**
  *    author : 桶哥二号
@@ -30,9 +27,9 @@ class RetrofitFactory private constructor() {
 
     init {
         retrofit = Retrofit.Builder()
-            .baseUrl("地址")
+            .baseUrl(Constant.BASE_URL)
             .client(initOkhttp())
-            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+            .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create())
             .build();
     }
@@ -73,18 +70,18 @@ class RetrofitFactory private constructor() {
                 }
                 sb.append("]")
             }
-            var response: Response = chain.proceed(request)
-            var t2 = System.nanoTime()
+            val response: Response = chain.proceed(request)
+            val t2 = System.nanoTime()
 
             //the response data
             //the response data
-            var body = response.body()
-            var source = body!!.source()
+            val body = response.body()
+            val source = body!!.source()
             source.request(kotlin.Long.Companion.MAX_VALUE) // Buffer the entire body.
 
-            var buffer = source.buffer()
+            val buffer = source.buffer()
             var charset = Charset.defaultCharset()
-            var contentType = body!!.contentType()
+            val contentType = body!!.contentType()
             if (contentType != null) {
                 charset = contentType!!.charset(charset)
             }
@@ -120,6 +117,10 @@ class RetrofitFactory private constructor() {
             }
         }
 
+    }
+
+    fun <T> creatApiService(service:Class<T>):T{
+       return retrofit.create(service)
     }
 
 

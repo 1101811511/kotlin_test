@@ -20,10 +20,18 @@ android {
     buildToolsVersion "30.0.2"
 
     defaultConfig {
+        if (!isUserModule.toBoolean()){
+            applicationId "com.jiewen.coco.center"
+        }
         minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
+
+        packagingOptions {
+            exclude 'META-INF/rxjava.properties'
+        }
+
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

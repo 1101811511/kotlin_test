@@ -11,5 +11,5 @@ package com.jiewen.coco.baseliabrary.presenter.view
 
     fun showLoading();
     fun hideLoading();
-    fun onError();
+    fun onError(msg:String);
 }

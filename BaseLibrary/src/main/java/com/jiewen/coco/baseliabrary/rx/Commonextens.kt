@@ -4,6 +4,7 @@ import rx.Observable
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
 
+
 /**
  *    author : 桶哥二号
  *    motto : Anything is possible
@@ -12,7 +13,7 @@ import rx.schedulers.Schedulers
  *    version: 1.0
  */
 fun <T> Observable<T>.extcue(subscriber: BaseSubscriber<T>) {
-    observeOn(AndroidSchedulers.mainThread())
+    this.observeOn(AndroidSchedulers.mainThread())
         .subscribeOn(Schedulers.io())
         .subscribe(subscriber)
 }
