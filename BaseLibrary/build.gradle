@@ -55,6 +55,8 @@ dependencies {
 
     api "com.squareup.retrofit2:adapter-rxjava:${retrofit_verison}"
     api 'com.squareup.okhttp3:logging-interceptor:3.6.0'
+    implementation "org.jetbrains.anko:anko-commons:$anko_version"
+
 
 
 }

@@ -42,11 +42,15 @@ class LoginActivity : BaseMvpActivity<LoginPresenter>(), LoginView {
         login.setOnClickListener {
             mPresenter.loginRequest()
         }
+        register.setOnClickListener{
+            startActivity<RegistActivity>()
+        }
     }
 
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+        // ?.如何有值就返回值，如果没有就返回null
         if (data != null && requestCode == 1) {
             user_name.setText(data.getStringExtra("userName"))
         }
