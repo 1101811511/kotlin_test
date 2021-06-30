@@ -7,4 +7,4 @@ package com.jiewen.coco.baseliabrary.data.protocol
  *    desc   : 我好难呀，我太难了呀
  *    version: 1.0
  */
-data class LoginBean(val id:Int,val username:String)
+data class LoginBean(val id:Int,val username:String, val publicName:String)

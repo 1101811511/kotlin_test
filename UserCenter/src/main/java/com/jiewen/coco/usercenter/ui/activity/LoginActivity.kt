@@ -1,5 +1,6 @@
 package com.jiewen.coco.usercenter.ui.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import com.jiewen.coco.baseliabrary.common.Constant
@@ -9,6 +10,8 @@ import com.jiewen.coco.usercenter.R
 import com.jiewen.coco.usercenter.presenter.LoginPresenter
 import com.jiewen.coco.usercenter.presenter.view.LoginView
 import kotlinx.android.synthetic.main.activity_login_regist.*
+import org.jetbrains.anko.startActivity
+import org.jetbrains.anko.startActivityForResult
 import org.jetbrains.anko.toast
 
 /**
@@ -20,18 +23,12 @@ import org.jetbrains.anko.toast
  */
 class LoginActivity : BaseMvpActivity<LoginPresenter>(), LoginView {
 
-    override fun getlayout(): Int =R.layout.activity_login_regist
-
+    override fun getlayout(): Int = R.layout.activity_login_regist
+    override fun getUserName(): String = user_name.text.toString().trim()
+    override fun getPassWord(): String = pass_word.text.toString().trim()
     override fun LoginResponse(response: LoginBean) {
-      Log.i(Constant.TAG,"登陆成功")
-        toast(response.username)
-    }
-    override fun getUserName(): String {
-        return user_name.text.toString().trim()
-    }
-
-    override fun getPassWord(): String {
-        return pass_word.text.toString().trim()
+        Log.i(Constant.TAG, "登陆成功")
+        this@LoginActivity.startActivityForResult<RegistActivity>(1)
     }
 
 
@@ -44,6 +41,14 @@ class LoginActivity : BaseMvpActivity<LoginPresenter>(), LoginView {
         mPresenter.mView = this
         login.setOnClickListener {
             mPresenter.loginRequest()
+        }
+    }
+
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (data != null && requestCode == 1) {
+            user_name.setText(data.getStringExtra("userName"))
         }
     }
 

@@ -23,7 +23,7 @@ class RegistPresenter :BasePresenter<RegistView>() {
 
     val registImp =Registimpl();
     //这里要用到扩展函数
-    fun doRegister(name:String,password:String,repassWord:String){
+    fun doRegister(){
         registImp.doRegist(mView.getUserName(),mView.getPassWord(),mView.getConfirmPsd())
                 .extcue(object : BaseSubscriber<BaseResponse<LoginBean>>() {
                     override fun onNext(t: BaseResponse<LoginBean>) {

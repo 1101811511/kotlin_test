@@ -22,7 +22,7 @@ interface ApiService {
     fun LoginRequest(@Field("username") username:String,@Field("password") pwd:String): Observable<BaseResponse<LoginBean>>
 
 
-    @POST()
+    @POST("user/register")
     @FormUrlEncoded
     fun doRegist(@Field("username")  name:String,@Field("password") pwd: String,@Field("repassword") confirmPwd:String):Observable<BaseResponse<LoginBean>>
 }
