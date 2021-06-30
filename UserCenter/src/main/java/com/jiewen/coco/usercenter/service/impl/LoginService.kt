@@ -16,15 +16,9 @@ import rx.Observable
  *    desc   : 我好难呀，我太难了呀
  *    version: 1.0
  */
-interface UserService  {
-    @POST("user/login")
-    @FormUrlEncoded
-    fun doLogin(@Field("username") name:String,@Field("password") pwd:String): Observable<BaseResponse<LoginBean>>
 
 
-    @POST("/user/register")
-    @FormUrlEncoded
-    fun doRegist(@Field("username") name:String,@Field("password") pwd:String,@Field("repassword") repassword:String)
-      :Observable<BaseResponse<LoginBean>>
-
+//module的接口
+interface LoginService  {
+    fun doLogin( name:String, pwd:String): Observable<BaseResponse<LoginBean>>
 }

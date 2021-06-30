@@ -6,7 +6,7 @@ import com.jiewen.coco.baseliabrary.presenter.BasePresenter
 import com.jiewen.coco.baseliabrary.rx.BaseSubscriber
 import com.jiewen.coco.baseliabrary.rx.extcue
 import com.jiewen.coco.usercenter.presenter.view.LoginView
-import com.jiewen.coco.usercenter.service.Userimpl
+import com.jiewen.coco.usercenter.service.Loginimpl
 
 /**
  *    author : 桶哥二号
@@ -17,7 +17,7 @@ import com.jiewen.coco.usercenter.service.Userimpl
  */
  open class LoginPresenter :BasePresenter<LoginView>() {
      fun loginRequest(){
-         val  userService = Userimpl()
+         val  userService = Loginimpl()
          userService.doLogin(mView.getUserName(),mView.getPassWord()).extcue(object :BaseSubscriber<BaseResponse<LoginBean>>(){
              override fun onNext(t: BaseResponse<LoginBean>) {
                     if (t.errorCode==0){

@@ -15,9 +15,14 @@ import rx.Observable
  *    desc   : 我好难呀，我太难了呀
  *    version: 1.0
  */
-interface LoginService {
+interface ApiService {
 
     @POST("user/login")
     @FormUrlEncoded
     fun LoginRequest(@Field("username") username:String,@Field("password") pwd:String): Observable<BaseResponse<LoginBean>>
+
+
+    @POST()
+    @FormUrlEncoded
+    fun doRegist(@Field("username")  name:String,@Field("password") pwd: String,@Field("repassword") confirmPwd:String):Observable<BaseResponse<LoginBean>>
 }

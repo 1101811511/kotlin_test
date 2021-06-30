@@ -1,5 +1,9 @@
 package com.jiewen.coco.usercenter.service.impl
 
+import com.jiewen.coco.baseliabrary.data.protocol.BaseResponse
+import com.jiewen.coco.baseliabrary.data.protocol.LoginBean
+import rx.Observable
+
 /**
  *    author : 桶哥二号
  *    motto : Anything is possible
@@ -8,4 +12,5 @@ package com.jiewen.coco.usercenter.service.impl
  *    version: 1.0
  */
 interface RegistService {
+    fun doRegist(name:String,pwd:String,confirmPwd:String): Observable<BaseResponse<LoginBean>>
 }

@@ -1,5 +1,6 @@
 package com.jiewen.coco.baseliabrary.ui.activity
 
+import android.os.Bundle
 import com.jiewen.coco.baseliabrary.presenter.BasePresenter
 import com.jiewen.coco.baseliabrary.presenter.view.BaseView
 
@@ -10,20 +11,35 @@ import com.jiewen.coco.baseliabrary.presenter.view.BaseView
  *    desc   : 我好难呀，我太难了呀
  *    version: 1.0
  */
-open class BaseMvpActivity<T:BasePresenter<*>> :BaseActivity(),BaseView {
+abstract class BaseMvpActivity<T : BasePresenter<*>> : BaseActivity(), BaseView {
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(getlayout())
+        initData()
+    }
+
+    abstract fun initData()
+
+
     override fun showLoading() {
-        TODO("Not yet implemented")
+
     }
 
     override fun hideLoading() {
-        TODO("Not yet implemented")
+
     }
 
     override fun onError(msg: String) {
-        TODO("Not yet implemented")
+
     }
+
+    abstract fun getlayout():Int
+
+
 
 
     //延迟加载
-    lateinit var mPresenter:T
+    lateinit var mPresenter: T
 }
