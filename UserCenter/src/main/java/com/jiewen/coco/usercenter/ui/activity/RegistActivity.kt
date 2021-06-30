@@ -30,7 +30,7 @@ class RegistActivity : BaseMvpActivity<RegistPresenter>(), RegistView {
             finish()
         }
         register_confirm.setOnClickListener {
-            if (!user_name.chechNull()) {
+            if (!user_name_re.chechNull()) {
                 toast("用户名不能为空!")
             } else if (!pass_word_re.chechNull()) {
                 toast("密码不能为空!")
@@ -55,9 +55,15 @@ class RegistActivity : BaseMvpActivity<RegistPresenter>(), RegistView {
 
     override fun registResponse(response: LoginBean) {
         Log.i(Constant.TAG, response.username)
+        toast("注册成功")
         val intent = Intent()
         intent.putExtra("userName", response.username)
         setResult(0, intent)
         finish()
+    }
+
+
+    override fun onError(msg: String) {
+        toast(msg)
     }
 }

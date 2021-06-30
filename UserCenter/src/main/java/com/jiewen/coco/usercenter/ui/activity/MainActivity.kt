@@ -2,6 +2,7 @@ package com.jiewen.coco.usercenter.ui.activity
 
 import android.os.Bundle
 import com.jiewen.coco.baseliabrary.ui.activity.BaseActivity
+import com.jiewen.coco.baseliabrary.ui.activity.BaseMvpActivity
 
 /**
  *    author : 桶哥二号
@@ -11,8 +12,9 @@ import com.jiewen.coco.baseliabrary.ui.activity.BaseActivity
  *    version: 1.0
  */
 class MainActivity:BaseActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        setContentView()
+
     }
 }

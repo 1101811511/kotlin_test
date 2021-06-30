@@ -28,7 +28,6 @@ class LoginActivity : BaseMvpActivity<LoginPresenter>(), LoginView {
     override fun getPassWord(): String = pass_word.text.toString().trim()
     override fun LoginResponse(response: LoginBean) {
         Log.i(Constant.TAG, "登陆成功")
-        this@LoginActivity.startActivityForResult<RegistActivity>(1)
     }
 
 
@@ -43,7 +42,7 @@ class LoginActivity : BaseMvpActivity<LoginPresenter>(), LoginView {
             mPresenter.loginRequest()
         }
         register.setOnClickListener{
-            startActivity<RegistActivity>()
+            this@LoginActivity.startActivityForResult<RegistActivity>(1)
         }
     }
 
@@ -52,6 +51,7 @@ class LoginActivity : BaseMvpActivity<LoginPresenter>(), LoginView {
         super.onActivityResult(requestCode, resultCode, data)
         // ?.如何有值就返回值，如果没有就返回null
         if (data != null && requestCode == 1) {
+            Log.i(Constant.TAG, data.getStringExtra("userName").toString())
             user_name.setText(data.getStringExtra("userName"))
         }
     }

@@ -33,7 +33,7 @@ class RetrofitFactory private constructor() {
             .client(initOkhttp())
             .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create())
-            .build();
+            .build()
     }
 
     private fun initOkhttp(): OkHttpClient {
