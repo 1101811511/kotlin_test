@@ -2,6 +2,10 @@ package com.jiewen.coco.usercenter.service.impl
 
 import com.jiewen.coco.baseliabrary.data.protocol.BaseResponse
 import com.jiewen.coco.baseliabrary.data.protocol.LoginBean
+import retrofit2.Call
+import retrofit2.http.Field
+import retrofit2.http.FormUrlEncoded
+import retrofit2.http.POST
 import rx.Observable
 
 
@@ -13,5 +17,8 @@ import rx.Observable
  *    version: 1.0
  */
 interface UserService  {
+    @POST("user/login")
+    @FormUrlEncoded
     fun doLogin(name:String,pwd:String): Observable<BaseResponse<LoginBean>>
+
 }

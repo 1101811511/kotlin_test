@@ -1,8 +1,10 @@
 package com.jiewen.coco.baseliabrary.data.net
 
+import android.util.Log
 import com.jiewen.coco.baseliabrary.common.Constant
 import com.jiewen.coco.baseliabrary.widget.PsqLogUtil
 import okhttp3.*
+import okhttp3.logging.HttpLoggingInterceptor
 import okio.Buffer
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory
@@ -36,9 +38,13 @@ class RetrofitFactory private constructor() {
 
     private fun initOkhttp(): OkHttpClient {
         return OkHttpClient.Builder()
-            .addInterceptor(CustomInteceptor())
+            .addInterceptor(HttpLoggingInterceptor { message -> Log.i(Constant.TAG, message!!) }.setLevel(HttpLoggingInterceptor.Level.BODY))
             .build()
     }
+
+
+     ;
+
 
     open class CustomInteceptor : Interceptor {
         override fun intercept(chain: Interceptor.Chain): Response {

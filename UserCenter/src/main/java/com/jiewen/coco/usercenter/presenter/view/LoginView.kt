@@ -11,5 +11,7 @@ import com.jiewen.coco.baseliabrary.presenter.view.BaseView
  *    version: 1.0
  */
  interface LoginView :BaseView {
-    fun  LoginResponse(response:LoginBean);
+    fun  LoginResponse(response:LoginBean):Unit
+    fun getUserName():String
+    fun getPassWord():String
 }

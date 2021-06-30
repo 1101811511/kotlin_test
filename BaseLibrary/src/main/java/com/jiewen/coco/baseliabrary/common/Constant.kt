@@ -10,5 +10,6 @@ package com.jiewen.coco.baseliabrary.common
 class Constant {
     companion object{
         val BASE_URL ="https://www.wanandroid.com/"
+        val TAG ="Kotlin_achuan_test"
     }
 }

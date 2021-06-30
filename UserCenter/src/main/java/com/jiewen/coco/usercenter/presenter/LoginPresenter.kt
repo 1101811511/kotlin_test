@@ -16,9 +16,9 @@ import com.jiewen.coco.usercenter.service.Userimpl
  *    version: 1.0
  */
  open class LoginPresenter :BasePresenter<LoginView>() {
-     fun loginRequest(name:String,passWord:String){
+     fun loginRequest(){
          val  userService = Userimpl()
-         userService.doLogin(name,passWord).extcue(object :BaseSubscriber<BaseResponse<LoginBean>>(){
+         userService.doLogin(mView.getUserName(),mView.getPassWord()).extcue(object :BaseSubscriber<BaseResponse<LoginBean>>(){
              override fun onNext(t: BaseResponse<LoginBean>) {
                     if (t.errorCode==0){
                         mView.LoginResponse(t.data)
