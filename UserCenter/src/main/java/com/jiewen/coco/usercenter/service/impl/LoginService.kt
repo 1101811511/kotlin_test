@@ -19,6 +19,12 @@ import rx.Observable
 interface UserService  {
     @POST("user/login")
     @FormUrlEncoded
-    fun doLogin(name:String,pwd:String): Observable<BaseResponse<LoginBean>>
+    fun doLogin(@Field("username") name:String,@Field("password") pwd:String): Observable<BaseResponse<LoginBean>>
+
+
+    @POST("/user/register")
+    @FormUrlEncoded
+    fun doRegist(@Field("username") name:String,@Field("password") pwd:String,@Field("repassword") repassword:String)
+      :Observable<BaseResponse<LoginBean>>
 
 }
