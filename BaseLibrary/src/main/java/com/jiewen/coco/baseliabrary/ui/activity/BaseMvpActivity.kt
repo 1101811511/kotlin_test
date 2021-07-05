@@ -20,6 +20,7 @@ abstract class BaseMvpActivity<T : BasePresenter<*>> : BaseActivity(), BaseView 
         initData()
     }
 
+
     abstract fun initData()
 
 

@@ -11,6 +11,6 @@ import com.jiewen.coco.baseliabrary.presenter.view.BaseView
  */
 //presener需要持有 view层的引用
 open class BasePresenter<T:BaseView> {
+   lateinit var  mView:T
 
-    lateinit var mView:T
 }

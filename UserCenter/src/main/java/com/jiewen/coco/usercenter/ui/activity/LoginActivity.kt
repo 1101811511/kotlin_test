@@ -37,7 +37,7 @@ class LoginActivity : BaseMvpActivity<LoginPresenter>(), LoginView {
 
     override fun initData() {
         mPresenter = LoginPresenter()
-        mPresenter.mView = this
+        mPresenter.mView =this
         login.setOnClickListener {
             mPresenter.loginRequest()
         }

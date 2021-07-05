@@ -16,6 +16,7 @@ import com.jiewen.coco.usercenter.service.Loginimpl
  *    version: 1.0
  */
  open class LoginPresenter :BasePresenter<LoginView>() {
+    //继承泛型类时，必须对父类中的类型参数进行初始化。
      fun loginRequest(){
          val  userService = Loginimpl()
          userService.doLogin(mView.getUserName(),mView.getPassWord()).extcue(object :BaseSubscriber<BaseResponse<LoginBean>>(){
